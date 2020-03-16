@@ -1,1 +1,1 @@
-This is some basic Boiler plate for a react project 
+This is the expensify app.
