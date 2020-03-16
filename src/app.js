@@ -1,30 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndecisionApp from './components/IndecisionApp';
+import { BrowserRouter, Route } from 'react-router-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render(<p>this is my boilerplate</p>, document.getElementById('app'));
+const ExpenseDashboardPage = () => (
+  <div>This is from my dashboard component</div>
+);
+const AddExpensePage = () => (
+  <div>This is from my Add expense component</div>
+);
+const EditExpensePage = () => (
+  <div>This is the Edit Expense Page component</div>
+);
+const HelpPage = () => (
+  <div>This is the Help Page component</div>
+);
 
-
-/*** USING props.children...
-const Layout = (props) => {
-  return (
+const routes = (
+  <BrowserRouter>
     <div>
-      <p>header</p>
-      {props.children}
-      <p>footer</p>
+      <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+      <Route path="/create" component={AddExpensePage}/>
+      <Route path="/edit" component={EditExpensePage}/>
+      <Route path="/help" component={HelpPage}/>
     </div>
-  );
-};
+  </BrowserRouter>
+);
 
-ReactDOM.render((
-  <Layout>
-    <div>
-      <h1>Page Title</h1>
-      <p>This is my page</p>
-    </div>
-  </Layout>
-), document.getElementById('app'));
+ReactDOM.render(routes, document.getElementById('app'));
 
-...props.children END***/
