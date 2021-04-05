@@ -13,11 +13,6 @@ import './styles/styles.scss';
 
 const store = configStore();
 
-store.subscribe(() => {
-  const state = store.getState();
-  const visEx = getVisibleExpenses(state.expenses, state.filters);
-  console.log(visEx);
-});
 
 // console.log(store.getState());
 
