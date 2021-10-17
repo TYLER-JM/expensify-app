@@ -5,11 +5,13 @@ import { editExpense, removeExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expense) => {
-    this.props.editExpense(this.props.match.params.id, expense);
+    // this.props.editExpense(this.props.match.params.id, expense);
+    this.props.editExpense(this.props.expense.id, expense);
     this.props.history.push('/');
   }
   onClick = () => {
-    this.props.removeExpense({ id: this.props.match.params.id });
+    // this.props.removeExpense({ id: this.props.match.params.id });
+    this.props.removeExpense({ id: this.props.expense.id });
     this.props.history.push('/');
   }
   render() {
@@ -19,7 +21,7 @@ export class EditExpensePage extends React.Component {
           expense={this.props.expense}
           onSubmit={this.onSubmit}
         />
-        <button onClick={this.onclick}>
+        <button onClick={this.onClick}>
           Remove
         </button>
       </div>
